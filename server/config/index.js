@@ -3,12 +3,16 @@
 module.exports = {
   env: {
     base: 'http://localhost',
-    port: 9000
+    port: 9001
   },
   db: {
-    host: 'localhost',
     dbName: 'example-db',
     username: 'nodeapi',
-    password: 'A3TVSGx4Q424DyWf'
+    password: 'A3TVSGx4Q424DyWf',
+    options: {
+      host: 'localhost',
+      dialect: 'mysql', //'mysql'|'mariadb'|'sqlite'|'postgres'|'mssql',
+      pool: { max: 10, min: 0, idle: 10000 }
+    }
   }
 };

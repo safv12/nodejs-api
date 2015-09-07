@@ -1,5 +1,8 @@
 'use strict';
 
 module.exports = function (app) {
-  // app.use('/api/v1/users', require('./api/controllers/users'));
+
+  // insert routes bellow
+  app.use('/api/v1/users', require('./api/controllers/users'));
+
 };
