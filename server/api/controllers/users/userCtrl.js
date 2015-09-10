@@ -22,7 +22,7 @@ exports.getAllUsers = function (req, res) {
 exports.getUser = function (req, res) {
   User.findAll({ where: { _id: req.params.id } })
     .then(function (users) {
-      res.status(200).send(users);
+      res.status(200).send(users[0]);
     }).catch(handleError(res));
 };
 

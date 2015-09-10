@@ -11,5 +11,10 @@
   "strict": true,
   "undef": true,
   "unused": true,
-  "eqnull": true
+  "eqnull": true,
+  "globals": {
+    "describe": true,
+    "before": true,
+    "it": true
+  }
 }

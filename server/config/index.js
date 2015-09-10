@@ -12,7 +12,8 @@ module.exports = {
     options: {
       host: 'localhost',
       dialect: 'mysql', //'mysql'|'mariadb'|'sqlite'|'postgres'|'mssql',
-      pool: { max: 10, min: 0, idle: 10000 }
+      pool: { max: 10, min: 0, idle: 10000 },
+      logging: false
     }
   }
 };
