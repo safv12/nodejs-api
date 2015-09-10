@@ -16,12 +16,14 @@ request = request('http://localhost:9001');
 
 
 describe('/api/v1/users', function () {
+  var userId;
 
   it('should save a new user', function (done) {
     request.post('/api/v1/users')
     .send({firstName: 'super', lastName: 'test'})
     .expect(201, function (err, res) {
       if (err){ return done(err); }
+      userId = res.body._id;
       should(res.body).have.property('_id');
       done();
     });
@@ -39,7 +41,7 @@ describe('/api/v1/users', function () {
 
 
   it('should get a specific user', function (done) {
-    request.get('/api/v1/users/1')
+    request.get('/api/v1/users/' + userId)
     .expect(200, function (err, res) {
       if (err){ return done(err); }
       should(res.body).have.property('_id');
@@ -49,7 +51,7 @@ describe('/api/v1/users', function () {
 
 
   it('should update a specific user', function (done) {
-    request.put('/api/v1/users/1')
+    request.put('/api/v1/users/' + userId)
     .send({firstName: 'supertest', lastName: 'updated'})
     .expect(200, function (err) {
       if (err){ return done(err); }
@@ -59,7 +61,7 @@ describe('/api/v1/users', function () {
 
 
   it('should update a specific user', function (done) {
-    request.delete('/api/v1/users/1')
+    request.delete('/api/v1/users/' + userId)
     .expect(204, function (err) {
       if (err){ return done(err); }
       done();
