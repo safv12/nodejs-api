@@ -1,6 +1,9 @@
 'use strict';
 
-var User = require('./User.js');
+module.exports = function() {
 
+  // Insert models bellow and sync
+  var User = require('./User.js');
+  User.sync();
 
-User.sync();
+};

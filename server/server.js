@@ -20,6 +20,7 @@ app.use(function (req, res, next) {
 
 
 require('./routes')(app);
+require('./api/models/_syncdb.js')();
 
 
 app.listen(conf.env.port, function () {
