@@ -18,6 +18,9 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get('/', function(req, res) {
+  res.status(200).send('Hello world');
+});
 
 require('./routes')(app);
 require('./api/models/_syncdb.js')();
